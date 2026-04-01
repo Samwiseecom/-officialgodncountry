@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official God & Country - Clearance Sales UP TO 65% OFF</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        .navbar { background: #111; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(255,255,255,0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 28px; font-weight: bold; letter-spacing: 2px; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-menu a:hover { color: #ccc; }
+        .cart-btn { background: #fff; color: #000; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .cart-btn:hover { background: #ccc; transform: scale(1.05); }
+
+        /* Hero Banner - Scrolling Animation */
+        .hero { height: 100vh; background: linear-gradient(45deg, #111, #222); display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+        .hero-content h1 { font-size: 4.5em; font-weight: bold; margin-bottom: 20px; animation: slideInUp 1s ease; }
+        .hero-content .sale-badge { background: #ff4444; color: #fff; padding: 15px 40px; font-size: 1.5em; font-weight: bold; border-radius: 50px; display: inline-block; margin: 20px 0; animation: pulse 2s infinite; }
+        .hero-content .extra-off { background: #fff; color: #000; padding: 12px 30px; font-size: 1.3em; font-weight: bold; border-radius: 30px; margin: 10px 0; animation: bounce 2s infinite; }
+        .cta-btn { background: #fff; color: #000; padding: 20px 50px; font-size: 1.4em; font-weight: bold; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 30px; transition: all 0.3s; animation: slideInUp 1s ease 0.5s both; }
+        .cta-btn:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(255,255,255,0.3); }
+
+        /* Floating Badges */
+        .floating-badge { position: absolute; animation: float 6s ease-in-out infinite; }
+        .free-shipping { top: 20%; right: 10%; background: #00ff88; color: #000; padding: 15px 25px; border-radius: 30px; font-weight: bold; }
+        .cod-available { bottom: 20%; left: 10%; background: #ffaa00; color: #000; padding: 15px 25px; border-radius: 30px; font-weight: bold; animation-delay: 2s; }
+
+        /* Products Section */
+        .products { padding: 100px 0; background: #111; }
+        .section-title { text-align: center; font-size: 3em; margin-bottom: 60px; letter-spacing: 3px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .product-card { background: #222; border-radius: 20px; overflow: hidden; transition: all 0.4s; position: relative; }
+        .product-card:hover { transform: translateY(-20px); box-shadow: 0 30px 60px rgba(255,255,255,0.1); }
+        .product-image { height: 300px; background: #333; position: relative; overflow: hidden; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .product-card:hover .product-image img { transform: scale(1.1); }
+        .sale-tag { position: absolute; top: 20px; right: 20px; background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: bold; }
+        .product-info { padding: 30px; }
+        .product-title { font-size: 1.4em; margin-bottom: 10px; }
+        .product-price { font-size: 2em; font-weight: bold; color: #ff4444; margin-bottom: 15px; }
+        .original-price { text-decoration: line-through; color: #888; font-size: 1.1em; margin-left: 10px; }
+        .add-to-cart { background: #fff; color: #000; padding: 15px 30px; border: none; border-radius: 30px; font-weight: bold; width: 100%; cursor: pointer; transition: all 0.3s; }
+        .add-to-cart:hover { background: #ccc; transform: scale(1.02); }
+
+        /* Clearance Section */
+        .clearance { padding: 100px 0; background: #000; position: relative; }
+        .clearance::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #ff4444, #ffaa00, #00ff88, #ff4444); animation: shimmer 3s infinite; }
+
+        /* Footer */
+        .footer { background: #111; padding: 60px 0 30px; text-align: center; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer h3 { margin-bottom: 20px; color: #fff; }
+        .footer a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; transition: color 0.3s; }
+        .footer a:hover { color: #fff; }
+
+        /* Animations */
+        @keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero-content h1 { font-size: 2.5em; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Scrolling Parallax */
+        .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🇺🇸 GOD & COUNTRY</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#clearance">Clearance</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#cart" class="cart-btn">🛒 Cart (0)</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-badge free-shipping">🚚 FREE SHIPPING</div>
+        <div class="floating-badge cod-available">💳 COD AVAILABLE</div>
+        <div class="hero-content">
+            <h1>WELCOME TO</h1>
+            <div class="sale-badge">SALES UP TO 50% OFF</div>
+            <div class="extra-off">SITEWIDE + EXTRA 15% OFF AT CHECKOUT</div>
+            <div style="font-size: 1.5em; margin: 20px 0;">🎁 FREE GIFT IN EVERY ORDER</div>
+            <a href="#products" class="cta-btn">SHOP NOW - UP TO 65% OFF</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">🔥 BEST SELLERS - UP TO 65% OFF</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=PATRIOT+TEE" alt="Patriot Tee">
+                        <div class="sale-tag">65% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Patriot Freedom Tee</h3>
+                        <div class="product-price">$19<span class="original-price"><s>$55</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=AMERICA+CAP" alt="America Cap">
+                        <div class="sale-tag">58% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">America First Cap</h3>
+                        <div class="product-price">$22<span class="original-price"><s>$52</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=LIBERTY+HOODIE" alt="Liberty Hoodie">
+                        <div class="sale-tag">62% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Liberty Eagle Hoodie</h3>
+                        <div class="product-price">$39<span class="original-price"><s>$99</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=FLAG+BEANIE" alt="Flag Beanie">
+                        <div class="sale-tag">55% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">American Flag Beanie</h3>
+                        <div class="product-price">$15<span class="original-price"><s>$35</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=2A+SHIRT" alt="2A Shirt">
+                        <div class="sale-tag">60% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">2nd Amendment Shirt</h3>
+                        <div class="product-price">$25<span class="original-price"><s>$65</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/333/fff?text=DON'T+TREAD" alt="Don't Tread">
+                        <div class="sale-tag">67% OFF</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Don't Tread On Me Flag</h3>
+                        <div class="product-price">$29<span class="original-price"><s>$89</s></span></div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clearance Section -->
+    <section id="clearance" class="clearance">
+        <div class="container">
+            <h2 class="section-title" style="color: #ff4444;">⚡ CLEARANCE - UP TO 65% OFF</h2>
+            <p style="text-align: center; font-size: 1.5em; margin-bottom: 50px;">EVERYTHING MUST GO! LIMITED STOCK</p>
+            <div style="text-align: center;">
+                <a href="#products" class="cta-btn" style="background: #ff4444; color: #fff;">GRAB DEALS NOW →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>🛒 Shop</h3>
+                    <a href="#">Tees</a>
+                    <a href="#">Hoodies</a>
+                    <a href="#">Hats</a>
+                    <a href="#">Flags</a>
+                </div>
+                <div>
+                    <h3>📞 Support</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Shipping Info</a>
+                    <a href="#">Returns</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <h3>💳 Payments</h3>
+                    <a href="#">Free Shipping</a>
+                    <a href="#">COD Available</a>
+                    <a href="#">Extra 15% Off</a>
+                    <a href="#">Free Gift Every Order</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #333; padding-top: 30px; color: #888;">
+                <p>&copy; 2024 Official God & Country. All Rights Reserved. 🇺🇸</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = '✅ ADDED!';
+                this.style.background = '#00ff88';
+                setTimeout(() => {
+                    this.textContent = 'ADD TO CART';
+                    this.style.background = '#fff';
+                }, 2000);
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(17,17,17,0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = '#111';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
